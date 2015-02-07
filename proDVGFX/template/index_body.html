@@ -1,0 +1,109 @@
+<!-- INCLUDE overall_header.html -->
+
+<p class="{S_CONTENT_FLOW_END} responsive-center time<!-- IF S_USER_LOGGED_IN --> rightside<!-- ENDIF -->"><!-- IF S_USER_LOGGED_IN -->{LAST_VISIT_DATE}<!-- ELSE -->{CURRENT_TIME}<!-- ENDIF --></p>
+<!-- IF S_USER_LOGGED_IN --><p class="responsive-center time">{CURRENT_TIME}</p><!-- ENDIF -->
+
+<!-- EVENT index_body_markforums_before -->
+<!-- IF U_MARK_FORUMS -->
+	<div class="action-bar compact">
+		<a href="{U_MARK_FORUMS}" class="mark-read rightside" accesskey="m" data-ajax="mark_forums_read">{L_MARK_FORUMS_READ}</a>
+	</div>
+<!-- ENDIF -->
+<!-- EVENT index_body_markforums_after -->
+
+<!-- INCLUDE forumlist_body.html -->
+
+<!-- EVENT index_body_forumlist_body_after -->
+
+<br />
+
+<div class="tabstats">
+	<!-- Menu -->
+	<ul class="tabNav">
+		<li><a href="#first" class="first"><span>{L_WHO_IS_ONLINE}</span></a></li>
+		<li><a href="#second"><span>{L_STATISTICS}</span></a></li>
+		<li><a href="#third"><span>{L_BIRTHDAYS}</span></a></li>
+		<!-- IF not S_USER_LOGGED_IN and not S_IS_BOT --><li><a href="#fourth"><span>{L_LOGIN}</span></a></li><!-- ENDIF -->
+		<!-- Remove coments if you want to add another tab. -->
+		<!-- <li><a href="#fifth"><span>Fifth</span></a></li> -->
+	</ul>
+	<!-- Content -->
+	<div class="tabBG" id="first">
+		<div id="insidetabBG">
+			<!-- IF S_DISPLAY_ONLINE_LIST -->
+				<!-- IF U_VIEWONLINE --><h3><a href="{U_VIEWONLINE}">{L_WHO_IS_ONLINE}</a></h3><!-- ELSE --><h3>{L_WHO_IS_ONLINE}</h3><!-- ENDIF -->
+				<p>
+					<!-- EVENT index_body_block_online_prepend -->
+					{TOTAL_USERS_ONLINE} ({L_ONLINE_EXPLAIN})<br />{RECORD_USERS}<br /> {LOGGED_IN_USER_LIST}
+					<!-- IF LEGEND --><br /><em>{L_LEGEND}{L_COLON} {LEGEND}</em><!-- ENDIF -->
+					<!-- EVENT index_body_block_online_append -->
+				</p>
+				<br />
+			<!-- ENDIF -->
+		</div>
+	</div>
+
+	<div class="tabBG" id="second">
+		<div id="insidetabBG2">
+			<!-- IF NEWEST_USER -->
+				<h3>{L_STATISTICS}</h3>
+				<p>
+					<!-- EVENT index_body_block_stats_prepend -->
+					&rsaquo; {TOTAL_POSTS}<br /> &rsaquo; {TOTAL_TOPICS}<br /> &rsaquo; {TOTAL_USERS}<br /> &rsaquo; {NEWEST_USER}
+					<!-- EVENT index_body_block_stats_append -->
+				</p>
+				<br />
+			<!-- ENDIF -->
+		</div>
+	</div>
+
+	<div class="tabBG" id="third">
+		<div id="insidetabBG3">
+			<h3>{L_BIRTHDAYS}</h3>
+			<p>
+				<!-- EVENT index_body_block_birthday_prepend -->
+				<!-- IF .birthdays -->{L_CONGRATULATIONS}{L_COLON} <strong><!-- BEGIN birthdays -->{birthdays.USERNAME}<!-- IF birthdays.AGE !== '' --> ({birthdays.AGE})<!-- ENDIF --><!-- IF not birthdays.S_LAST_ROW -->, <!-- ENDIF --><!-- END birthdays --></strong><!-- ELSE -->{L_NO_BIRTHDAYS}<!-- ENDIF -->
+				<!-- EVENT index_body_block_birthday_append -->
+			</p>
+			<br />
+		</div>
+	</div>
+
+	<div class="tabBG" id="fourth">
+		<div id="insidetabBG4">
+			<!-- IF not S_USER_LOGGED_IN and not S_IS_BOT -->
+				<h3>{L_LOGIN_LOGOUT}<!-- IF S_REGISTER_ENABLED -->&nbsp; &rsaquo; &nbsp;<a href="{U_REGISTER}">{L_REGISTER}</a><!-- ENDIF --></h3>
+				<form method="post" action="{S_LOGIN_ACTION}">
+					<fieldset class="quick-login">
+						<input type="text" name="username" id="username" size="10" class="inputbox" title="{L_USERNAME}" value="{L_USERNAME}" onclick="if(this.value=='{L_USERNAME}')this.value='';" onblur="if(this.value=='')this.value='{L_USERNAME}';" />
+						<input type="password" name="password" id="password" size="10" class="inputbox" title="{L_PASSWORD}" value="{L_PASSWORD}" onclick="if(this.value=='{L_PASSWORD}')this.value='';" onblur="if(this.value=='')this.value='{L_PASSWORD}';" />
+						<input type="submit" name="login" value="{L_LOGIN}" class="button2" />
+						<ul>
+							<!-- IF U_SEND_PASSWORD --><li><a href="{U_SEND_PASSWORD}">{L_FORGOT_PASS}</a></li><!-- ENDIF -->
+							<!-- IF S_AUTOLOGIN_ENABLED --><li><label><input type="checkbox" name="autologin" id="autologin" tabindex="4" /> {L_LOG_ME_IN}</label></li><!-- ENDIF -->
+							<li><label><input type="checkbox" name="viewonline" id="viewonline" tabindex="5" /> {L_HIDE_ME}</label></li>
+						</ul>
+						{S_LOGIN_REDIRECT}
+					</fieldset>
+				</form>
+				<br />
+			<!-- ENDIF -->
+		</div>
+	</div>
+
+	<!-- EVENT index_body_stat_blocks_before -->
+
+	<!-- Space for extra content
+	<div class="tabBG" id="fifth">
+		<div id="insidetabBG5">
+			<p>Content</p>
+		</div>
+	</div>-->
+
+	<!-- EVENT index_body_stat_blocks_after -->
+
+</div>
+
+<br />
+
+<!-- INCLUDE overall_footer.html -->

@@ -1,8 +1,8 @@
-### :checkered_flag: Welcome to the MFM phpBB Forum Styles!
+### Welcome to the MFM phpBB Forum Styles!
 This GitHub repository contains the styles used for the phpBB [MFM Forums][].
 [MFM Forums]: http://movie-file-merger.org/forum/index.php
 
-### :book: The User Manuals...
+### The User Manuals...
 There are multiple manuals, which are more or less interconnected, involved in the whole project.
 
 - The [Movie File Merger User Manual][], which concentrates on the program technical aspects of handling MFM.  It is a GitBook and on [GitHub][GitHub MFM UM].
@@ -12,7 +12,7 @@ There are multiple manuals, which are more or less interconnected, involved in t
 [How to Organize Videos on Your Hard Disks]: http://www.movie-file-merger.org/organizevideos.html
 [GitHub HtOVoYHD]: https://github.com/Modi777/How-to-Organize-Videos-on-Your-Hard-Disks
 
-### :arrow_double_down: The Download & Website...
+### The Download & Website...
 Have a look at the [Movie File Merger Website][], where you can download the project as ZIP or TAR, or the installation folder for the latest release.
 [MFM Installation]: https://github.com/Modi777/Movie-File-Merger/wiki/installation/
 [Movie File Merger Website]: http://movie-file-merger.org
